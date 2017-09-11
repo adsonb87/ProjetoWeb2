@@ -49,7 +49,7 @@ public class Cobranca implements Serializable {
 	@Column(name="RP_NN")
 	private Long codigo;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="RP_REGDATE")
 	private Date regdate;
 

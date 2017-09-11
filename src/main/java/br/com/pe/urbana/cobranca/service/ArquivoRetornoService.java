@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -81,7 +81,7 @@ public class ArquivoRetornoService {
 				cobranca.setStatus(Status.PAGO);
 				cobranca.setDataPagamento(t.getDataOcorrencia());
 				cobranca.setReguser("SISTEMA");
-				cobranca.setRegdate(new Date());
+				cobranca.setRegdate(Calendar.getInstance().getTime());
 				totalTitulosPagos++;
 				cobrancasPagas.add(cobranca);
 			}
