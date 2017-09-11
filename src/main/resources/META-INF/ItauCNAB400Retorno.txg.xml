@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<txg:Texgit xmlns:txg="http://jrimum.org/texgit"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://gilmatryx.googlepages.com/Texgit http://jrimum.org/texgit"
+	version="1.0-academic">
+
+	<FlatFile>
+		<layout>
+			<name>Arquivo-Retorno_ItauCNAB400</name>
+			<description>
+				Layout para cobrança.
+
+				Arquivo texto - padrão CNAB
+				Meio de Registro Transmissão de Dados 
+				Descrição de Registro - Tamanho 400 Bytes
+				Organização Sequencial
+
+				ARQUIVO FORMATO CNAB RETORNO, REGISTROS:
+				 
+				0 - Header Label
+				1 - Cobrança - Transação 
+				3 - Rateio de Crédito (opcional)
+				9 - Trailler (Papel de finalizador de lote e totalizador)
+			</description>
+		</layout>
+		<GroupOfRecords>
+			<Record name="Header" description="Protocolo de comunicação">
+				<GroupOfFields>
+					<IdType name="IDRegsitro" value="0" length="1" position="1" />
+					<Field name="CodigoRetorno" type="INTEGER" value="2" length="1" />
+					<Field name="LiteralRetorno" type="STRING" value="RETORNO" length="7" />
+					<Field name="CodigoDeServico" type="INTEGER" value="01" length="2" />
+					<Field name="LiteralServico" type="STRING" value="COBRANCA" length="15" />
+					<Field name="Agencia" type="INTEGER" length="4" />
+					<Field name="Zeros" type="INTEGER" length="2" value="00" />
+					<Field name="Conta" type="INTEGER" length="5" />
+					<Field name="DigitoConta" type="INTEGER" length="1" />
+					<Field name="Brancos1" type="STRING" length="8" />
+					<Field name="NomeDaEmpresa" type="STRING" length="30" />
+					<Field name="CodigoBanco" type="INTEGER" value="341" length="3" />
+					<Field name="NomeBanco" value="BANCO ITAU SA" length="15" />
+					<Field name="DataGeracao" type="DATE" format="DATE_DDMMYY" length="6" />
+					<Field name="Densidade" type="INTEGER" length="5" />
+					<Field name="UnidadeDensid" type="STRING" value="BPI" length="3" />
+					<Field name="NumeroSequencialArquivoRet" type="INTEGER" length="5" />
+					<Field name="DataCredito" type="DATE" format="DATE_DDMMYY" length="6" />
+					<Field name="Brancos2" type="STRING" length="275" />
+					<Field name="NumeroSequencialRegistroArq" type="INTEGER" length="6" padding="ZERO_LEFT" />
+				</GroupOfFields>
+			</Record>
+			<Record name="TransacaoTitulo" repeatable="true">
+				<GroupOfFields>
+					<IdType name="IDRegsitro" value="1" length="1" position="1" />
+					<Field name="CodigoInscricao" value="02" type="INTEGER" length="2" />
+					<Field name="NumeroInscricao" type="STRING" length="14" padding="ZERO_LEFT" />
+					<Field name="Agencia" type="INTEGER" length="4" />
+					<Field name="Zeros1" type="INTEGER" value="00" length="2" />
+					<Field name="Conta" type="INTEGER" length="5" />
+					<Field name="DigitoContaEmpresa" type="INTEGER" length="1" />
+					<Field name="Brancos1" type="STRING" length="8" />
+					<Field name="UsoDaEmpresa" type="STRING" length="25" />
+					<Field name="NossoNumeroIdTituloBanco1" type="INTEGER" length="8" />
+					<Field name="Brancos2" type="STRING" length="12" />
+					<Field name="Carteira" type="INTEGER" length="3" />
+					<Field name="NossoNumeroIdTituloBanco" type="INTEGER" length="8" />
+					<Field name="DigitoNossoNumero" type="INTEGER" length="1" />
+					<Field name="Brancos3" type="STRING" length="13" />
+					<Field name="CodigoCarteira" type="STRING" length="1" />
+					<Field name="CodigoOcorrencia" type="INTEGER" length="2" />
+					<Field name="DataOcorrencia" type="DATE" format="DATE_DDMMYY" length="6" />
+					<Field name="NumeroDocumento" type="STRING" length="10" />
+					<Field name="NossoNumeroConfTituloBanco" type="INTEGER" length="8" />
+					<Field name="Brancos4" type="STRING" length="12" />
+					<Field name="Vencimento" type="DATE" format="DATE_DDMMYY" length="6" />
+					<Field name="ValorTitulo" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="CodigoBanco" type="INTEGER" length="3" />
+					<Field name="AgenciaCobradora" type="INTEGER" length="4" />
+					<Field name="DigitoAgenciaCobradora" type="INTEGER" length="1" />
+					<Field name="Especie" type="STRING" length="2" />
+					<Field name="TarifaCobranca" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="Brancos5" type="STRING" length="26" />
+					<Field name="ValorIOF" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="ValorAbatimento" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="Desconto" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="ValorPrincipal" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="JurosMoraMulta" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="OutrosCreditos" type="BIGDECIMAL" format="DECIMAL_DD" length="13" />
+					<Field name="BoletoDDA" type="STRING" length="1" />
+					<Field name="Brancos6" type="STRING" length="2" />
+					<Field name="DataCreditoLiquidacao" type="DATE" format="DATE_DDMMYY" length="6" />
+					<Field name="InstrucaoCancelada" type="INTEGER" length="4" />
+					<Field name="Brancos7" type="STRING" length="6" />
+					<Field name="Zeros2" type="INTEGER" length="13" />
+					<Field name="NomePagador" type="STRING" length="30" />
+					<Field name="Brancos8" type="STRING" length="23" />
+					<Field name="Erros" type="STRING" length="08" />
+					<Field name="Brancos9" type="STRING" length="7" />
+					<Field name="CodigoLiquidacao" type="STRING" length="2" />
+					<Field name="NumeroSequencialRegistroArq" type="INTEGER" length="6" />
+				</GroupOfFields>
+			</Record>
+			<Record name="Trailler">
+				<GroupOfFields>
+					<IdType name="IDRegsitro" value="9" length="1" position="1" />
+					<Field name="CodigoRetorno" type="INTEGER" value="2" length="1" />
+					<Field name="CodigoServico" type="INTEGER" value="01" length="2" />
+					<Field name="CodigoBanco" type="INTEGER" value="341" length="3" />
+					<Field name="Brancos1" type="STRING" length="10" />
+					<Field name="QuantidadeTitulosSimples" type="INTEGER" length="8" />
+					<Field name="ValorTotal" type="BIGDECIMAL" format="DECIMAL_DD" length="14" />
+					<Field name="AvisoBancario1" type="STRING" length="8" />
+					<Field name="Brancos2" type="STRING" length="10" />
+					<Field name="QuantidadeTitulosCobranVinc" type="INTEGER" length="8" />
+					<Field name="ValorTotalCobranVinc" type="BIGDECIMAL" format="DECIMAL_DD" length="14" />
+					<Field name="AvisoBancario2" type="STRING" length="8" />
+					<Field name="Brancos3" type="STRING" length="90" />
+					<Field name="QuantidadeTitulosCobranDiretaEscritural" type="INTEGER" length="8"/>
+					<Field name="ValorTotalCobranDiretaEscritural" type="BIGDECIMAL" format="DECIMAL_DD" length="14" />
+					<Field name="AvisoBancario3" type="STRING" length="8" />
+					<Field name="ControleDoArquivo" type="INTEGER" length="5" />
+					<Field name="QuantidadeDetalhes" type="INTEGER" length="8" />
+					<Field name="ValorTotalInformado" type="BIGDECIMAL" format="DECIMAL_DD" length="14" />
+					<Field name="Brancos4" type="STRING" length="160" />
+					<Field name="NumeroSequencialRegistroArq" type="INTEGER" length="6" />
+				</GroupOfFields>
+			</Record>
+		</GroupOfRecords>
+	</FlatFile>
+
+</txg:Texgit>
