@@ -45,7 +45,7 @@ public class ArquivoRetorno {
 				transacoes.add(new TransacaoTitulo(registro));
 			}
 		} catch (Exception e) {
-			throw new ArquivoRetornoException("Erro carregando arquivo de retorno");
+			throw new ArquivoRetornoException("Erro ao carregar arquivo de retorno");
 		}		
 	}
 

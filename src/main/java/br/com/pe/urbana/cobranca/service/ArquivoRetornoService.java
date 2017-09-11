@@ -109,10 +109,10 @@ public class ArquivoRetornoService {
 				FileUtils.copyInputStreamToFile(inputstream, arquivo);
 				arquivoRetorno = new ArquivoRetorno(arquivo);
 			} catch (IOException e) {
-				throw new ArquivoRetornoException("Erro carregando arquivo de retorno");
+				throw new ArquivoRetornoException("Erro ao carregar arquivo de retorno");
 			}	
 		} else {
-			throw new ArquivoRetornoException("Você esqueceu de carregar o arquivo de retorno");
+			throw new ArquivoRetornoException("Erro ao carregar arquivo de retorno");
 		}
 			
 		return arquivoRetorno;

@@ -42,7 +42,7 @@ public class TransactionInterceptor implements Serializable {
 			if (transaction != null && owner) {
 				transaction.rollback();
 			}
-			throw new ArquivoRetornoException("Erro carregando arquivo de retorno");
+			throw new ArquivoRetornoException("Erro ao carregar arquivo de retorno");
 			//throw e;
 		} finally {
 			if (transaction != null && transaction.isActive() && owner) {
